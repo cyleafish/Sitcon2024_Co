@@ -1,7 +1,7 @@
 # FastAPI LINE Bot with Gemini AI and Firebase Integration
 
 This project is a FastAPI application that integrates with LINE Messaging API, Gemini AI, and Firebase to handle various types of messages and provide intelligent responses.
-
+*此專案員檔為：https://github.com/louis70109/linebot-gemini-earthquake
 ## Features
 
 - **Health Check Endpoint**: Simple endpoint to check if the service is running.
