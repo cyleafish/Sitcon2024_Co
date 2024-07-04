@@ -54,9 +54,16 @@ async def process_user_message(message, user_id):
                 return f"最新新聞：\n\n標題: {top_article['title']}\n描述: {top_article['description']}\n\n更多詳情: {top_article['url']}"
         return "目前沒有相關新聞。"
     elif "故事" in message:
-        story_response = generate_gmini_story("開始你的故事...", user_id, gmini_api_key)
-        if story_response:
-            return story_response.get("story", "無法生成故事。")
+        news_response = fetch_news_data("gender equality OR emotional education", news_api_key)
+        if news_response and news_response.get("status") == "ok":
+            articles = news_response.get("articles", [])
+            if articles:
+                top_article = articles[0]
+                # Generate a story based on the top article
+                story_prompt = f"根據以下新聞生成一個故事：\n\n標題: {top_article['title']}\n描述: {top_article['description']}\n\n故事內容："
+                story_response = generate_gmini_story(story_prompt, user_id, gmini_api_key)
+                if story_response:
+                    return story_response.get("story", "無法生成故事。")
         return "生成故事時出現錯誤。"
     else:
         return "請問你想了解什麼？可以說「新聞」或「故事」。"
