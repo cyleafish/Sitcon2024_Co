@@ -1,4 +1,3 @@
-
 import requests
 
 def fetch_news_data(query, api_key):
@@ -7,7 +6,5 @@ def fetch_news_data(query, api_key):
     return response.json()
 
 def generate_gmini_story(prompt, user_id, api_key):
-    url = f"https://api.gmini.ai/generate"
-    payload = {"prompt": prompt, "user_id": user_id, "api_key": api_key}
-    response = requests.post(url, json=payload)
-    return response.json()
+    # 實現 Gmini API 故事生成邏輯
+    pass
