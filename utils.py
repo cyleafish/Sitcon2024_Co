@@ -6,5 +6,12 @@ def fetch_news_data(query, api_key):
     return response.json()
 
 def generate_gmini_story(prompt, user_id, api_key):
-    # 實現 Gmini API 故事生成邏輯
-    pass
+    url = "https://api.gmini.ai/generate"
+    payload = {"prompt": prompt, "user_id": user_id, "api_key": api_key}
+    try:
+        response = requests.post(url, json=payload)
+        response.raise_for_status()  # 如果響應狀態碼不是 200，則引發 HTTPError
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Failed to generate story: {e}")
+        return {"error": "無法生成故事。"}
