@@ -39,7 +39,7 @@ news_api_key = os.getenv('NEWS_API_KEY')
 gmini_api_key = os.getenv('GMINI_API_KEY')
 
 # Initialize the Gemini Pro API
-genai.configure(api_key=gemini_key)
+gemini.configure(api_key=gemini_key)
 
 @app.get("/health")
 async def health():
