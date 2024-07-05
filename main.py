@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+import requests
 from fastapi import FastAPI, HTTPException, Request
 from linebot.v3.webhook import WebhookParser
 from linebot.v3.messaging import (
