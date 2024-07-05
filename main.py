@@ -58,7 +58,7 @@ async def process_user_message(message, user_id):
             articles = news_response.get("articles", [])
             if articles:
                 random_article = random.choice(articles)
-                return f"最新新聞：\n\n標題: {top_article['title']}\n描述: {top_article['description']}\n\n更多詳情: {top_article['url']}"
+                return f"最新新聞：\n\n標題: {top_article['title']}\n\n描述: {top_article['description']}\n\n更多詳情: {top_article['url']}"
         return "目前沒有相關新聞。"
     elif "故事" in message:
         # 呼叫 generate_gmini_story 函數來生成故事
